@@ -67,10 +67,11 @@ const AnimalModal: React.FC<AnimalModalProps> = ({
                     style={styles.distanceIcon}
                   />
                   <Text style={styles.distanceText}>{animal.distance}</Text>
+
+                  <TouchableOpacity>
+                    <Text style={styles.mapButtonText}>Map</Text>
+                  </TouchableOpacity>
                 </View>
-                <TouchableOpacity style={styles.mapButton}>
-                  <Text style={styles.mapButtonText}>Map</Text>
-                </TouchableOpacity>
               </View>
 
               <Text style={styles.description}>{animal.description}</Text>
@@ -142,12 +143,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     marginBottom: 28,
-    paddingVertical: 4,
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    backgroundColor: Colors.lightGray,
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: "#E5E5E5",
+    width: "50%",
   },
   distanceInfo: {
     flexDirection: "row",
     alignItems: "center",
-    flex: 1,
   },
   distanceIcon: {
     width: 16,
@@ -156,24 +162,14 @@ const styles = StyleSheet.create({
     tintColor: Colors.textSecondary,
   },
   distanceText: {
-    fontSize: 15,
+    fontSize: 14,
     color: Colors.textSecondary,
     fontWeight: "500",
-  },
-  mapButton: {
-    backgroundColor: Colors.secondary,
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 22,
-    shadowColor: Colors.secondary,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
-    elevation: 3,
+    marginRight: 12,
   },
   mapButtonText: {
-    color: Colors.white,
-    fontSize: 14,
+    color: Colors.secondary,
+    fontSize: 12,
     fontWeight: "600",
   },
   description: {

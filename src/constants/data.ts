@@ -50,13 +50,13 @@ export const upcomingShows: Show[] = [
     id: "1",
     title: "Dive Feeding @ Shipwreck",
     time: "2:30 PM",
-    image: require("../../assets/icons/SEA.png"),
+    image: require("../../assets/icons/dive.png"),
   },
   {
     id: "2",
     title: "Say Cheese Shark",
     time: "2:40 PM",
-    image: require("../../assets/icons/SEA.png"),
+    image: require("../../assets/icons/dive.png"),
   },
 ];
 
