@@ -100,14 +100,7 @@ const AnimalModal: React.FC<AnimalModalProps> = ({
                         source={require('../../assets/icons/walk.png')}
                         style={styles.distanceIcon}
                       />
-                      <View>
-                        <Text style={styles.distanceText}>
-                          {animal.distance}
-                        </Text>
-                        <Text style={styles.walkingTimeText}>
-                          {formatWalkingTime(animal.distance)}
-                        </Text>
-                      </View>
+                      <Text style={styles.distanceText}>{animal.distance}</Text>
                     </View>
                     <AnimatedPressable style={styles.mapButton}>
                       <Text style={styles.mapButtonText}>{ButtonText.MAP}</Text>
@@ -142,7 +135,7 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     position: 'relative',
-    height: height * 0.45, // 45% of screen height
+    height: height * 0.35, // 35% of screen height
     overflow: 'visible',
   },
   animalImage: {
@@ -152,16 +145,16 @@ const styles = StyleSheet.create({
   },
   closeButton: {
     position: 'absolute',
-    top: 50,
+    top: 60,
     left: 20,
-    width: 36,
-    height: 36,
+    width: 40,
+    height: 40,
     justifyContent: 'center',
     alignItems: 'center',
   },
   closeIcon: {
-    width: 36,
-    height: 36,
+    width: 30,
+    height: 30,
   },
   contentContainer: {
     flex: 1,
@@ -175,7 +168,7 @@ const styles = StyleSheet.create({
   },
   infoSection: {
     padding: 24,
-    paddingTop: 32,
+    paddingTop: 24,
   },
   zoneText: {
     fontSize: 12,
@@ -185,69 +178,69 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   animalName: {
-    fontSize: 28,
+    fontSize: 32,
     fontWeight: 'bold',
     color: Colors.text,
-    marginBottom: 24,
-    lineHeight: 34,
+    marginBottom: 20,
+    lineHeight: 38,
   },
   distanceContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: 28,
-    paddingVertical: 8,
-    paddingHorizontal: 16,
-    backgroundColor: Colors.lightGray,
-    borderRadius: 25,
+    justifyContent: 'flex-start',
+    marginBottom: 24,
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    backgroundColor: 'transparent',
+    borderRadius: 20,
     borderWidth: 1,
-    borderColor: '#E5E5E5',
+    borderColor: '#D0D0D0',
+    alignSelf: 'flex-start',
   },
   distanceInfo: {
     flexDirection: 'row',
     alignItems: 'center',
-    flex: 1,
   },
   distanceIcon: {
-    width: 16,
-    height: 16,
-    marginRight: 8,
-    tintColor: Colors.textSecondary,
+    width: 14,
+    height: 14,
+    marginRight: 6,
+    tintColor: '#666',
   },
   distanceText: {
-    fontSize: 14,
-    color: Colors.textSecondary,
-    fontWeight: '500',
+    fontSize: 12,
+    color: '#666',
+    fontWeight: '400',
+    marginRight: 8,
   },
   walkingTimeText: {
     fontSize: 12,
-    color: Colors.textSecondary,
+    color: '#666',
     fontWeight: '400',
-    marginTop: 2,
   },
   mapButton: {
-    backgroundColor: Colors.secondary,
-    paddingHorizontal: 16,
-    paddingVertical: 6,
-    borderRadius: 15,
-    marginLeft: 12,
+    backgroundColor: '#E53E3E',
+    paddingHorizontal: 12,
+    paddingVertical: 4,
+    borderRadius: 12,
+    marginLeft: 8,
   },
   mapButtonText: {
-    color: Colors.white,
-    fontSize: 12,
+    color: '#FFFFFF',
+    fontSize: 11,
     fontWeight: '600',
   },
   description: {
     fontSize: 16,
     color: Colors.text,
-    lineHeight: 26,
-    marginBottom: 24,
+    lineHeight: 24,
+    marginBottom: 20,
     textAlign: 'left',
   },
   facts: {
     fontSize: 16,
     color: Colors.text,
-    lineHeight: 26,
+    lineHeight: 24,
     textAlign: 'left',
   },
 })
