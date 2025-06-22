@@ -32,6 +32,9 @@ const AppNavigator: React.FC = () => {
               fontSize: 12,
               fontWeight: "500",
             },
+            tabBarHideOnKeyboard: true,
+            tabBarShowLabel: true,
+            animation: "shift",
           }}
         >
           <Tab.Screen
@@ -40,7 +43,11 @@ const AppNavigator: React.FC = () => {
             options={{
               tabBarIcon: ({ focused }) => (
                 <View
-                  style={{ alignItems: "center", justifyContent: "center" }}
+                  style={{
+                    alignItems: "center",
+                    justifyContent: "center",
+                    transform: [{ scale: focused ? 1.1 : 1.0 }],
+                  }}
                 >
                   <Image
                     source={require("../../assets/icons/Home.png")}
@@ -60,7 +67,11 @@ const AppNavigator: React.FC = () => {
             options={{
               tabBarIcon: ({ focused }) => (
                 <View
-                  style={{ alignItems: "center", justifyContent: "center" }}
+                  style={{
+                    alignItems: "center",
+                    justifyContent: "center",
+                    transform: [{ scale: focused ? 1.1 : 1.0 }],
+                  }}
                 >
                   <Image
                     source={require("../../assets/icons/Tickets.png")}
@@ -80,7 +91,11 @@ const AppNavigator: React.FC = () => {
             options={{
               tabBarIcon: ({ focused }) => (
                 <View
-                  style={{ alignItems: "center", justifyContent: "center" }}
+                  style={{
+                    alignItems: "center",
+                    justifyContent: "center",
+                    transform: [{ scale: focused ? 1.1 : 1.0 }],
+                  }}
                 >
                   <Image
                     source={require("../../assets/icons/More.png")}
