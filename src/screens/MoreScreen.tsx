@@ -1,7 +1,7 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Colors } from "@/constants/colors";
+import React from 'react'
+import { View, Text, StyleSheet } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import { Colors } from '@/constants/colors'
 
 const MoreScreen: React.FC = () => {
   return (
@@ -11,8 +11,8 @@ const MoreScreen: React.FC = () => {
         <Text style={styles.subtitle}>Additional options and settings</Text>
       </View>
     </SafeAreaView>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -21,21 +21,21 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     paddingHorizontal: 20,
   },
   title: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     color: Colors.text,
     marginBottom: 10,
   },
   subtitle: {
     fontSize: 16,
     color: Colors.textSecondary,
-    textAlign: "center",
+    textAlign: 'center',
   },
-});
+})
 
-export default MoreScreen;
+export default MoreScreen

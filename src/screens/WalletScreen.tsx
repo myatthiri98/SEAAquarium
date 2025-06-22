@@ -1,7 +1,7 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Colors } from "@/constants/colors";
+import React from 'react'
+import { View, Text, StyleSheet } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import { Colors } from '@/constants/colors'
 
 const WalletScreen: React.FC = () => {
   return (
@@ -13,8 +13,8 @@ const WalletScreen: React.FC = () => {
         </Text>
       </View>
     </SafeAreaView>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -23,21 +23,21 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     paddingHorizontal: 20,
   },
   title: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     color: Colors.text,
     marginBottom: 10,
   },
   subtitle: {
     fontSize: 16,
     color: Colors.textSecondary,
-    textAlign: "center",
+    textAlign: 'center',
   },
-});
+})
 
-export default WalletScreen;
+export default WalletScreen

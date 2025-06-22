@@ -1,15 +1,15 @@
-import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Image, View } from "react-native";
-import { SafeAreaProvider } from "react-native-safe-area-context";
+import React from 'react'
+import { NavigationContainer } from '@react-navigation/native'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { Image, View } from 'react-native'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 
-import HomeScreen from "@/screens/HomeScreen";
-import WalletScreen from "@/screens/WalletScreen";
-import MoreScreen from "@/screens/MoreScreen";
-import { Colors } from "@/constants/colors";
+import HomeScreen from '@/screens/HomeScreen'
+import WalletScreen from '@/screens/WalletScreen'
+import MoreScreen from '@/screens/MoreScreen'
+import { Colors } from '@/constants/colors'
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator()
 
 const AppNavigator: React.FC = () => {
   return (
@@ -30,11 +30,11 @@ const AppNavigator: React.FC = () => {
             tabBarInactiveTintColor: Colors.gray,
             tabBarLabelStyle: {
               fontSize: 12,
-              fontWeight: "500",
+              fontWeight: '500',
             },
             tabBarHideOnKeyboard: true,
             tabBarShowLabel: true,
-            animation: "shift",
+            animation: 'shift',
           }}
         >
           <Tab.Screen
@@ -44,13 +44,13 @@ const AppNavigator: React.FC = () => {
               tabBarIcon: ({ focused }) => (
                 <View
                   style={{
-                    alignItems: "center",
-                    justifyContent: "center",
+                    alignItems: 'center',
+                    justifyContent: 'center',
                     transform: [{ scale: focused ? 1.1 : 1.0 }],
                   }}
                 >
                   <Image
-                    source={require("../../assets/icons/Home.png")}
+                    source={require('../../assets/icons/Home.png')}
                     style={{
                       width: 24,
                       height: 24,
@@ -68,13 +68,13 @@ const AppNavigator: React.FC = () => {
               tabBarIcon: ({ focused }) => (
                 <View
                   style={{
-                    alignItems: "center",
-                    justifyContent: "center",
+                    alignItems: 'center',
+                    justifyContent: 'center',
                     transform: [{ scale: focused ? 1.1 : 1.0 }],
                   }}
                 >
                   <Image
-                    source={require("../../assets/icons/Tickets.png")}
+                    source={require('../../assets/icons/Tickets.png')}
                     style={{
                       width: 24,
                       height: 24,
@@ -92,13 +92,13 @@ const AppNavigator: React.FC = () => {
               tabBarIcon: ({ focused }) => (
                 <View
                   style={{
-                    alignItems: "center",
-                    justifyContent: "center",
+                    alignItems: 'center',
+                    justifyContent: 'center',
                     transform: [{ scale: focused ? 1.1 : 1.0 }],
                   }}
                 >
                   <Image
-                    source={require("../../assets/icons/More.png")}
+                    source={require('../../assets/icons/More.png')}
                     style={{
                       width: 24,
                       height: 24,
@@ -112,7 +112,7 @@ const AppNavigator: React.FC = () => {
         </Tab.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
-  );
-};
+  )
+}
 
-export default AppNavigator;
+export default AppNavigator

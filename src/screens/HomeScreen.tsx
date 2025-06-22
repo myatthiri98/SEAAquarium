@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 import {
   View,
   Text,
@@ -7,34 +7,34 @@ import {
   Image,
   TouchableOpacity,
   StatusBar,
-  Modal,
-} from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { LinearGradient } from "expo-linear-gradient";
+} from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import { LinearGradient } from 'expo-linear-gradient'
 
-import { Colors } from "@/constants/colors";
+import { Colors } from '@/constants/colors'
 import {
   navigationItems,
   upcomingShows,
   ticketInfo,
   parkHours,
   alligatorGarInfo,
-} from "@/constants/data";
-import AnimalModal from "@/components/AnimalModal";
+} from '@/constants/data'
+import { NavigationTitles } from '@/constants/navigation'
+import { FeaturedText, ButtonText, SectionTitles } from '@/constants/text'
+import AnimalModal from '@/components/AnimalModal'
 
 const HomeScreen: React.FC = () => {
-  const [modalVisible, setModalVisible] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false)
 
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor={Colors.white} />
 
-      {/* Header */}
       <View style={styles.header}>
         <View style={styles.headerLeft}>
           <TouchableOpacity>
             <Image
-              source={require("../../assets/icons/Back.png")}
+              source={require('../../assets/icons/Back.png')}
               style={styles.backButton}
             />
           </TouchableOpacity>
@@ -42,7 +42,7 @@ const HomeScreen: React.FC = () => {
 
         <View style={styles.headerCenter}>
           <Image
-            source={require("../../assets/icons/SEA.png")}
+            source={require('../../assets/icons/SEA.png')}
             style={styles.logo}
             resizeMode="contain"
           />
@@ -50,32 +50,30 @@ const HomeScreen: React.FC = () => {
 
         <TouchableOpacity style={styles.headerRight}>
           <Image
-            source={require("../../assets/icons/Noti.png")}
+            source={require('../../assets/icons/Noti.png')}
             style={styles.notificationIcon}
           />
         </TouchableOpacity>
       </View>
 
       <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
-        {/* Featured Section */}
         <View style={styles.featuredSection}>
           <Image
-            source={require("../../assets/icons/dive.png")}
+            source={require('../../assets/icons/dive.png')}
             style={styles.featuredImage}
           />
           <LinearGradient
-            colors={["transparent", "rgba(0,0,0,0.8)"]}
+            colors={['transparent', 'rgba(0,0,0,0.8)']}
             style={styles.featuredOverlay}
           >
             <View style={styles.featuredTextContainer}>
               <Text style={styles.featuredText}>
-                Don't miss our{"\n"}daily Dive Feeding!
+                {FeaturedText.DIVE_FEEDING}
               </Text>
             </View>
           </LinearGradient>
         </View>
 
-        {/* Navigation Grid */}
         <View style={styles.navigationGrid}>
           <View style={styles.navigationRow}>
             {navigationItems.slice(0, 4).map((item, index) => (
@@ -83,8 +81,8 @@ const HomeScreen: React.FC = () => {
                 key={item.id}
                 style={styles.navigationItem}
                 onPress={() => {
-                  if (item.title === "Inhabitants") {
-                    setModalVisible(true);
+                  if (item.title === NavigationTitles.INHABITANTS) {
+                    setModalVisible(true)
                   }
                 }}
               >
@@ -102,8 +100,8 @@ const HomeScreen: React.FC = () => {
                 key={item.id}
                 style={styles.navigationItem}
                 onPress={() => {
-                  if (item.title === "Inhabitants") {
-                    setModalVisible(true);
+                  if (item.title === NavigationTitles.INHABITANTS) {
+                    setModalVisible(true)
                   }
                 }}
               >
@@ -118,13 +116,12 @@ const HomeScreen: React.FC = () => {
           </View>
         </View>
 
-        {/* Info Cards */}
         <View style={styles.infoSection}>
           <View style={styles.infoCard}>
             <View style={styles.infoCardHeader}>
-              <Text style={styles.infoTitle}>My e-tickets</Text>
+              <Text style={styles.infoTitle}>{SectionTitles.MY_E_TICKETS}</Text>
               <Image
-                source={require("../../assets/icons/Tickets.png")}
+                source={require('../../assets/icons/Tickets.png')}
                 style={styles.infoIcon}
               />
             </View>
@@ -136,9 +133,9 @@ const HomeScreen: React.FC = () => {
 
           <View style={styles.infoCard}>
             <View style={styles.infoCardHeader}>
-              <Text style={styles.infoTitle}>Park hours</Text>
+              <Text style={styles.infoTitle}>{SectionTitles.PARK_HOURS}</Text>
               <Image
-                source={require("../../assets/icons/Hour.png")}
+                source={require('../../assets/icons/Hour.png')}
                 style={styles.infoIcon}
               />
             </View>
@@ -150,12 +147,13 @@ const HomeScreen: React.FC = () => {
           </View>
         </View>
 
-        {/* Upcoming Shows */}
         <View style={styles.showsSection}>
           <View style={styles.showsHeader}>
-            <Text style={styles.showsTitle}>Upcoming Shows</Text>
+            <Text style={styles.showsTitle}>
+              {SectionTitles.UPCOMING_SHOWS}
+            </Text>
             <TouchableOpacity>
-              <Text style={styles.viewAllText}>View all</Text>
+              <Text style={styles.viewAllText}>{ButtonText.VIEW_ALL}</Text>
             </TouchableOpacity>
           </View>
 
@@ -169,10 +167,9 @@ const HomeScreen: React.FC = () => {
                 <View style={styles.showImageContainer}>
                   <Image source={show.image} style={styles.showImage} />
 
-                  {/* Time Container Overlay */}
                   <View style={styles.showTimeContainer}>
                     <Image
-                      source={require("../../assets/icons/Clock.png")}
+                      source={require('../../assets/icons/Clock.png')}
                       style={styles.showTimeIcon}
                     />
                     <Text style={styles.showTime}>{show.time}</Text>
@@ -185,15 +182,14 @@ const HomeScreen: React.FC = () => {
         </View>
       </ScrollView>
 
-      {/* Animal Modal */}
       <AnimalModal
         visible={modalVisible}
         onClose={() => setModalVisible(false)}
         animal={alligatorGarInfo}
       />
     </SafeAreaView>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -201,8 +197,8 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.background,
   },
   header: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     paddingHorizontal: 20,
     paddingVertical: 15,
     backgroundColor: Colors.white,
@@ -216,7 +212,7 @@ const styles = StyleSheet.create({
   },
   headerCenter: {
     flex: 2,
-    alignItems: "center",
+    alignItems: 'center',
   },
   logo: {
     width: 100,
@@ -225,7 +221,7 @@ const styles = StyleSheet.create({
   },
   headerRight: {
     flex: 1,
-    alignItems: "flex-end",
+    alignItems: 'flex-end',
   },
   notificationIcon: {
     width: 24,
@@ -237,66 +233,66 @@ const styles = StyleSheet.create({
   featuredSection: {
     margin: 20,
     borderRadius: 12,
-    overflow: "hidden",
+    overflow: 'hidden',
     height: 200,
   },
   featuredImage: {
-    width: "100%",
-    height: "100%",
-    resizeMode: "cover",
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover',
   },
   featuredOverlay: {
-    position: "absolute",
+    position: 'absolute',
     bottom: 0,
     left: 0,
     right: 0,
-    height: "60%",
-    justifyContent: "flex-end",
+    height: '60%',
+    justifyContent: 'flex-end',
     padding: 20,
   },
   featuredTextContainer: {
-    justifyContent: "flex-end",
-    alignItems: "flex-start",
+    justifyContent: 'flex-end',
+    alignItems: 'flex-start',
   },
   featuredText: {
     color: Colors.white,
     fontSize: 24,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     lineHeight: 30,
-    textAlign: "left",
+    textAlign: 'left',
   },
   navigationGrid: {
     paddingHorizontal: 20,
     marginBottom: 20,
   },
   navigationRow: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
     marginBottom: 15,
   },
   navigationRowBottom: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
     paddingHorizontal: 0,
   },
   navigationItem: {
-    width: "22%",
-    alignItems: "center",
+    width: '22%',
+    alignItems: 'center',
     marginBottom: 15,
   },
   navigationSpacer: {
-    width: "22%",
+    width: '22%',
     height: 10,
   },
   navigationIconContainer: {
     width: 60,
     height: 60,
     borderRadius: 30,
-    backgroundColor: "#F5F5F5",
-    justifyContent: "center",
-    alignItems: "center",
+    backgroundColor: '#F5F5F5',
+    justifyContent: 'center',
+    alignItems: 'center',
     marginBottom: 12,
     shadowColor: Colors.black,
     shadowOffset: { width: 0, height: 2 },
@@ -311,11 +307,11 @@ const styles = StyleSheet.create({
   navigationText: {
     fontSize: 12,
     color: Colors.text,
-    textAlign: "center",
-    fontWeight: "500",
+    textAlign: 'center',
+    fontWeight: '500',
   },
   infoSection: {
-    flexDirection: "row",
+    flexDirection: 'row',
     paddingHorizontal: 20,
     marginBottom: 20,
   },
@@ -327,10 +323,10 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
   },
   infoCardHeader: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     marginBottom: 10,
-    justifyContent: "space-between",
+    justifyContent: 'space-between',
   },
   infoIcon: {
     width: 26,
@@ -339,7 +335,7 @@ const styles = StyleSheet.create({
   },
   infoTitle: {
     fontSize: 14,
-    fontWeight: "600",
+    fontWeight: '600',
     color: Colors.text,
   },
   infoSubtitle: {
@@ -349,48 +345,48 @@ const styles = StyleSheet.create({
   },
   infoDate: {
     fontSize: 16,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     color: Colors.text,
     marginBottom: 2,
   },
   infoHours: {
     fontSize: 16,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     color: Colors.text,
     marginBottom: 8,
   },
   infoAction: {
     fontSize: 12,
     color: Colors.secondaryLight,
-    fontWeight: "500",
+    fontWeight: '500',
   },
   showsSection: {
     paddingHorizontal: 20,
     marginBottom: 20,
   },
   showsHeader: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     marginBottom: 15,
   },
   showsTitle: {
     fontSize: 18,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     color: Colors.text,
   },
   viewAllText: {
     fontSize: 14,
     color: Colors.secondary,
-    fontWeight: "500",
+    fontWeight: '500',
   },
   showsList: {
-    flexDirection: "row",
+    flexDirection: 'row',
   },
   showCard: {
     width: 200,
     borderRadius: 12,
-    overflow: "hidden",
+    overflow: 'hidden',
     marginRight: 15,
     backgroundColor: Colors.white,
     shadowColor: Colors.shadow,
@@ -400,20 +396,20 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   showImageContainer: {
-    position: "relative",
+    position: 'relative',
   },
   showImage: {
-    width: "100%",
+    width: '100%',
     height: 120,
-    resizeMode: "cover",
+    resizeMode: 'cover',
   },
   showTimeContainer: {
-    position: "absolute",
+    position: 'absolute',
     top: 8,
     left: 8,
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "#fff",
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#fff',
     paddingHorizontal: 8,
     paddingVertical: 4,
     borderRadius: 12,
@@ -426,16 +422,16 @@ const styles = StyleSheet.create({
   showTime: {
     fontSize: 11,
     color: Colors.text,
-    fontWeight: "600",
+    fontWeight: '600',
   },
   showTitle: {
-    position: "absolute",
+    position: 'absolute',
     bottom: 8,
     left: 8,
     fontSize: 14,
-    fontWeight: "600",
+    fontWeight: '600',
     color: Colors.white,
   },
-});
+})
 
-export default HomeScreen;
+export default HomeScreen
